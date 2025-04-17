@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LeBron's Mad Libs: GOAT Edition!</title>
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f3ee;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-image: url('https://www.transparenttextures.com/patterns/basketball.png'); /* Subtle basketball texture */
+    background-repeat: repeat;
+  }
+  h1 {
+    color: #860038;
+    margin-bottom: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  #lebronImage {
+    width: 150px; /* Slightly smaller image */
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  #inputForm {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 700px;
+    display: grid; /* Using grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns */
+    gap: 15px;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #00274e;
+  }
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  input[type="text"]:focus {
+    border-color: #ffc72c; /* Highlight on focus */
+    box-shadow: 0 0 5px rgba(255, 199, 44, 0.5);
+    outline: none;
+  }
+  button {
+    grid-column: 1 / -1; /* Make the button span across the grid */
+    padding: 12px 25px;
+    background-color: #ffc72c;
+    color: #552583;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+  }
+  button:hover {
+    background-color: #f0b323;
+  }
+  #madLibsStory {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+  }
+  #madLibsStory h2 {
+    color: #552583;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  #madLibsStory p {
+    font-size: 18px;
+    line-height: 1.6;
+    white-space: pre-line;
+    text-align: left;
+  }
+  #restartButton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  #restartButton:hover {
+    background-color: #0056b3;
+  }
+  .error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <body>
+
+        <a href="../index.html" style="align-self: flex-start; margin-bottom: 20px; font-weight: bold; text-decoration: none; color:#860038; font-size: 16px;">
+          ← Back to All About Me
+        </a>
+        <a href="index.html" style="align-self: flex-start; margin-bottom: 20px; font-weight: bold; text-decoration: none; color:#860038; font-size: 16px;">
+            ← Back to My Work
+          </a>
+      
+      
+
+  <h1>LeBron's Mad Libs: GOAT Edition!</h1>
+
+  <img id="lebronImage" src="https://i.pinimg.com/474x/34/09/34/340934f84b9453011a064f15e6ead062.jpg" alt="LeBron James">
+
+  <div id="inputForm">
+    <div class="input-group">
+      <label for="noun1">Enter a Noun:</label>
+      <input type="text" id="noun1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="noun1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="adjective1">Enter an Adjective:</label>
+      <input type="text" id="adjective1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="adjective1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="verb1">Enter a Verb (ending in -ing):</label>
+      <input type="text" id="verb1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="verb1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="adverb1">Enter an Adverb:</label>
+      <input type="text" id="adverb1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="adverb1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="pluralNoun1">Enter a Plural Noun:</label>
+      <input type="text" id="pluralNoun1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="pluralNoun1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="noun2">Enter another Noun:</label>
+      <input type="text" id="noun2" onkeypress="handleEnter(event)">
+      <p class="error-message" id="noun2Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="adjective2">Enter another Adjective:</label>
+      <input type="text" id="adjective2" onkeypress="handleEnter(event)">
+      <p class="error-message" id="adjective2Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="verb2">Enter another Verb:</label>
+      <input type="text" id="verb2" onkeypress="handleEnter(event)">
+      <p class="error-message" id="verb2Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="pronoun1">Enter a Pronoun (he, she, it, they):</label>
+      <input type="text" id="pronoun1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="pronoun1Error"></p>
+    </div>
+    <div class="input-group">
+      <label for="exclamation1">Enter an Exclamation:</label>
+      <input type="text" id="exclamation1" onkeypress="handleEnter(event)">
+      <p class="error-message" id="exclamation1Error"></p>
+    </div>
+    <button onclick="generateMadLibs()">Generate Story</button>
+  </div>
+
+  <div id="madLibsStory" style="display: none;">
+    <h2>Your LeBron Story:</h2>
+    <p id="storyOutput"></p>
+    <button id="restartButton" onclick="startOver()">Play Again?</button>
+  </div>
+
+  <script>
+    function generateMadLibs() {
+      const noun1 = document.getElementById("noun1").value.trim();
+      const adjective1 = document.getElementById("adjective1").value.trim();
+      const verb1 = document.getElementById("verb1").value.trim();
+      const adverb1 = document.getElementById("adverb1").value.trim();
+      const pluralNoun1 = document.getElementById("pluralNoun1").value.trim();
+      const noun2 = document.getElementById("noun2").value.trim();
+      const adjective2 = document.getElementById("adjective2").value.trim();
+      const verb2 = document.getElementById("verb2").value.trim();
+      const pronoun1 = document.getElementById("pronoun1").value.trim().toLowerCase();
+      const exclamation1 = document.getElementById("exclamation1").value.trim();
+
+      let isValid = true;
+
+      // Basic input validation
+      const inputs = document.querySelectorAll('#inputForm input[type="text"]');
+      inputs.forEach(input => {
+        const id = input.id;
+        const value = input.value.trim();
+        const errorElement = document.getElementById(id + "Error");
+
+        if (!value) {
+          errorElement.textContent = `Please enter a ${id.replace(/([A-Z])/g, ' $1').toLowerCase().replace('noun1', 'noun').replace('noun2', 'noun').replace('adjective1', 'adjective').replace('adjective2', 'adjective').replace('verb1', 'verb').replace('verb2', 'verb').replace('plural noun1', 'plural noun').replace('adverb1', 'adverb').replace('pronoun1', 'pronoun').replace('exclamation1', 'exclamation')}.`;
+          isValid = false;
+        } else {
+          errorElement.textContent = "";
+        }
+
+        if (id === "verb1" && !value.endsWith("ing")) {
+          errorElement.textContent = "Please enter a verb ending in -ing.";
+          isValid = false;
+        }
+        if (id === "pronoun1" && !["he", "she", "it", "they"].includes(value)) {
+          errorElement.textContent = "Please enter a valid pronoun (he, she, it, they).";
+          isValid = false;
+        }
+      });
+
+      if (isValid) {
+        const storyTemplates = [
+          `LeBron James was feeling quite ${adjective1} today. He decided to take his pet ${noun1} for a walk while ${verb1} down the street ${adverb1}. Suddenly, a group of ${pluralNoun1} appeared! LeBron exclaimed, "${exclamation1}!" ${pronoun1} quickly grabbed ${noun2} and made a ${adjective2} escape by ${verb2} away.`,
+
+          `Yesterday, LeBron had a ${adjective1} dream. He was in a giant ${noun1} and everyone was ${verb1} ${adverb1}. Suddenly, ${pluralNoun1} started to fall from the sky! "${exclamation1}," LeBron shouted. ${pronoun1} tried to catch a ${adjective2} one, but it landed right on ${pronoun1}'s ${noun2} and made ${pronoun1} ${verb2} with laughter.`,
+
+          `The news reported that LeBron James was spotted ${verb1} ${adverb1} near a famous ${noun1}. Apparently, ${pronoun1} was trying to collect ${pluralNoun1} for a secret ${adjective1} project. When a reporter asked what the project was, LeBron simply smiled and said, "${exclamation1}! It's a ${adjective2} ${noun2}!" Then ${pronoun1} proceeded to ${verb2} away, leaving everyone in confusion.`,
+
+          `It was a ${adjective1} night when LeBron decided to have a ${noun1} party. All his ${pluralNoun1} were ${verb1} ${adverb1}. Suddenly, someone yelled, "${exclamation1}!" It was ${pronoun1}, who had just tried to ${verb2} a very ${adjective2} ${noun2}.`
+        ];
+
+        const randomIndex = Math.floor(Math.random() * storyTemplates.length);
+        const selectedStory = storyTemplates[randomIndex];
+
+        const story = selectedStory
+          .replace(/\${adjective1}/g, adjective1)
+          .replace(/\${noun1}/g, noun1)
+          .replace(/\${verb1}/g, verb1)
+          .replace(/\${adverb1}/g, adverb1)
+          .replace(/\${pluralNoun1}/g, pluralNoun1)
+          .replace(/\${exclamation1}/g, exclamation1)
+          .replace(/\${pronoun1}/g, pronoun1)
+          .replace(/\${noun2}/g, noun2)
+          .replace(/\${adjective2}/g, adjective2)
+          .replace(/\${verb2}/g, verb2);
+
+        document.getElementById("storyOutput").textContent = story;
+        document.getElementById("inputForm").style.display = "none";
+        document.getElementById("madLibsStory").style.display = "block";
+      }
+    }
+
+    function startOver() {
+      document.getElementById("inputForm").style.display = "block";
+      document.getElementById("madLibsStory").style.display = "none";
+      const inputs = document.querySelectorAll('#inputForm input[type="text"]');
+      inputs.forEach(input => input.value = '');
+      const errorMessages = document.querySelectorAll('.error-message');
+      errorMessages.forEach(error => error.textContent = '');
+    }
+
+    function handleEnter(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // Prevent form submission
+        const currentInput = event.target;
+        const form = currentInput.closest('#inputForm');
+        if (form) {
+          const inputs = Array.from(form.querySelectorAll('input[type="text"]'));
+          const currentIndex = inputs.indexOf(currentInput);
+          if (currentIndex < inputs.length - 1) {
+            inputs[currentIndex + 1].focus();
+          } else {
+            // If it's the last input, maybe focus on the submit button (optional)
+            const submitButton = form.querySelector('button[onclick="generateMadLibs()"]');
+            if (submitButton) {
+              submitButton.focus();
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

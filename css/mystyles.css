@@ -1,0 +1,14 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: lemonchiffon;
+}
+h1,h2,h3,.subheading{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+}
+h2:hover, h3:hover{
+    color: darkslateblue ;
+}
+/* a:hover{
+    color: darkviolet !important;
+} */
+ 
